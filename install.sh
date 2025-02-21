@@ -19,6 +19,14 @@ fi
 
 # Symlink Dotfiles
 echo "Linking dotfiles..."
+
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config/karabiner"
+mkdir -p "$HOME/.config/yabai"
+mkdir -p "$HOME/.config/skhd"
+mkdir -p "$HOME/.config/tmux"
+mkdir -p "$HOME/.config/ghostty"
+
 ln -sf "$HOME/dotfiles/zsh/zshrc" "$HOME/.zshrc"
 ln -sf "$HOME/dotfiles/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
 ln -sf "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
