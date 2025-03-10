@@ -35,13 +35,6 @@ alias wm="aerospace"
 ###############################################################################
 # Custom Functions
 ###############################################################################
-# Display work repo status (excludes specific branches)
-wrs() {
-  cd "$HOME/dev/Advisa/" && \
-  eza --long --git-repos --no-permissions --no-user --no-time --across --no-filesize | \
-  grep -v HEAD | grep -v master | grep -v main | grep -v scripts
-}
-
 # 'fd' function: cd into a selected directory using fzf
 fd() {
   local dir
