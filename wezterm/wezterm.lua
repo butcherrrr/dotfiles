@@ -6,12 +6,12 @@ config.font = wezterm.font("JetBrains Mono")
 config.font_size = 18
 
 config.colors = {
-  background = "#1F2531"
+  -- background = "#1F2531"
 }
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-config.color_scheme = "nord"
+config.color_scheme = "Catppuccin Mocha"
 config.window_background_opacity = 0.90
 config.macos_window_background_blur = 0
 
