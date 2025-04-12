@@ -8,12 +8,7 @@ config.font_size = 18
 config.colors = {
   background = "#1F2531"
 }
-config.window_padding = {
-  left = '1cell',
-  right = '1cell',
-  top = '1cell',
-  bottom = '-1cell',
-}
+
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.color_scheme = "nord"
@@ -24,4 +19,3 @@ config.window_close_confirmation = 'NeverPrompt'
 config.max_fps = 120
 config.animation_fps = 120
 return config
-
