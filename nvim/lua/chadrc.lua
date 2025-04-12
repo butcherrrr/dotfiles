@@ -6,6 +6,7 @@ local M = {}
 
 M.base46 = {
   theme = "nord",
+  theme_toggle = { "nord", "everforest" },
   transparency = true,
 
   hl_override = {
@@ -17,6 +18,8 @@ M.base46 = {
 M.ui = {
   statusline = { theme = "minimal", separator_style = "round" },
 }
+
+M.nvdash = { load_on_startup = true, header = { "" } }
 
 vim.opt.relativenumber = true
 
