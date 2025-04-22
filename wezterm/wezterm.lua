@@ -4,8 +4,7 @@ local config = wezterm.config_builder()
 
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 20
-config.line_height = 1.2
-
+config.line_height = 1.218
 config.colors = {
   -- background = "#1F2531"
 }
