@@ -11,9 +11,9 @@ config.colors = {
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Catppuccin Macchiato"
 config.window_background_opacity = 0.90
-config.macos_window_background_blur = 0
+config.macos_window_background_blur = 70
 
 config.window_close_confirmation = 'NeverPrompt'
 config.max_fps = 120
