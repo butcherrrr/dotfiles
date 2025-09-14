@@ -17,6 +17,6 @@ config.macos_window_background_blur = 100
 config.window_close_confirmation = 'NeverPrompt'
 config.max_fps = 120
 config.animation_fps = 120
-config.line_height = 1.2
+config.line_height = 1.1
 
 return config
