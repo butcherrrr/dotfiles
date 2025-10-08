@@ -1,7 +1,8 @@
 font-family = "JetBrains Mono"
 font-size = 19
-theme = catppuccin-mocha 
-background-opacity = 0.95
+background = #2A2A36
+background-opacity = 0.87
+background-blur = 100
 window-padding-x = 10,10
 window-padding-y = 10,0
 window-padding-balance = true
