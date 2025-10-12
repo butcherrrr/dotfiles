@@ -1,8 +1,5 @@
 font-family = "JetBrains Mono"
-font-size = 19
-background = #2A2A36
-background-opacity = 0.87
-background-blur = 100
+font-size = 20
 window-padding-x = 10,10
 window-padding-y = 10,0
 window-padding-balance = true
@@ -10,3 +7,4 @@ macos-titlebar-style = hidden
 macos-window-shadow = false
 window-theme = auto
 window-title-font-family = "JetBrains Mono"
+theme = Nord 
