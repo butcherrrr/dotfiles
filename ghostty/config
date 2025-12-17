@@ -8,3 +8,4 @@ macos-window-shadow = true
 window-theme = auto
 window-title-font-family = "JetBrains Mono"
 theme = Nord
+background-opacity = 0.95
