@@ -35,28 +35,60 @@ alias wm="aerospace"
 ###############################################################################
 # Custom Functions
 ###############################################################################
-# 'fd' function: cd into a selected directory using fzf
-fd() {
-  local dir
-  dir=$(find "${1:-.}" -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && \
-  cd "$dir"
-}
+
+###############################################################################
+# Load Helper Scripts
+###############################################################################
+# Load Git helpers
+source "$HOME/dotfiles/zsh/git-helpers.zsh"
+
+# Load Homebrew helpers
+source "$HOME/dotfiles/zsh/brew-helpers.zsh"
 
 ###############################################################################
 # fzf Configuration
 ###############################################################################
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS}
-  --color=fg:-1,fg+:#5e81ac,bg:-1,bg+:#1F2531
-  --color=hl:#e5e9f0,hl+:#5fd7ff,info:#ebcb8b,marker:#a3be8c
-  --color=prompt:#a3be8c,spinner:#ebcb8b,pointer:#a3be8c,header:#8fbcbb
-  --color=border:#2e3440,separator:#5e81ac,preview-label:#e5e9f0,label:#e5e9f0
-  --color=query:#eceff4
-  --border=rounded --border-label= --preview-window=border-rounded --padding=1
-  --margin=2,10,2,10 --prompt='❯ ' --marker='❯ ' --pointer='◆'
-  --separator='─' --scrollbar='│'"
-export FZF_TMUX_OPTS="-p"
+export FZF_DEFAULT_OPTS="
+  --color=bg:-1,bg+:-1
+  --color=fg:#d8dee9,fg+:#eceff4
+
+  # Match highlighting
+  --color=hl:#ebcb8b,hl+:#d08770
+
+  # Primary accents
+  --color=prompt:#a3be8c
+  --color=pointer:#5e81ac,marker:#88c0d0
+
+  # UI chrome
+  --color=border:#4c566a,separator:#434c5e,scrollbar:#3b4252
+
+  # Status / metadata
+  --color=info:#b48ead,header:#8fbcbb
+  --color=spinner:#81a1c1
+
+  --border=rounded
+  --separator='─'
+  --scrollbar='│'
+
+  --layout=reverse
+  --info=inline-right
+
+  # Centering
+  --margin=5%,5%
+
+  # Preview
+  --preview 'bat --style=numbers --color=always --line-range=:300 {}'
+  --preview-window=bottom:55%:border-top:hidden
+  --bind '?:toggle-preview'
+
+  --prompt='❯ '
+  --pointer=''
+  --marker=''
+"
+
+export FZF_TMUX_OPTS="-p 90%,70%"
 
 ###############################################################################
 # Load Additional Scripts & Tools
