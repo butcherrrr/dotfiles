@@ -2,7 +2,7 @@
 # Homebrew Helper Functions
 ###############################################################################
 
-# Interactive Homebrew search + install using fzf
+# Interactive Homebrew search + install using fzf (API-based, no local scanning)
 brewin() {
   command -v brew >/dev/null || { echo "brew not found"; return 1; }
   command -v fzf  >/dev/null || { echo "fzf not found"; return 1; }
@@ -15,22 +15,55 @@ brewin() {
   local opener="open"
   command -v open >/dev/null || opener="xdg-open"
 
+  # Cache directory
+  local cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/brew-fzf"
+  mkdir -p "$cache_dir"
+
+  # Cache files (refresh daily)
+  local formula_cache="$cache_dir/formulae.txt"
+  local cask_cache="$cache_dir/casks.txt"
+
+  # Update cache if older than 1 day or doesn't exist
+  local cache_age=86400  # 1 day in seconds
+  local now=$(date +%s)
+
+  if [ ! -f "$formula_cache" ] || [ $((now - $(stat -f %m "$formula_cache" 2>/dev/null || echo 0))) -gt $cache_age ]; then
+    echo "Updating formulae cache..."
+    curl -s "https://formulae.brew.sh/api/formula.json" | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+for item in data:
+    print(item['name'])
+" > "$formula_cache" 2>/dev/null
+  fi
+
+  if [ ! -f "$cask_cache" ] || [ $((now - $(stat -f %m "$cask_cache" 2>/dev/null || echo 0))) -gt $cache_age ]; then
+    echo "Updating casks cache..."
+    curl -s "https://formulae.brew.sh/api/cask.json" | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+for item in data:
+    print(item['token'])
+" > "$cask_cache" 2>/dev/null
+  fi
+
   # Start query (optional arg)
   local initial_query="${1:-}"
 
+  # Pre-load all packages into fzf (no runtime filesystem access)
+  local all_packages
+  all_packages="$(
+    cat "$formula_cache" 2>/dev/null | sed 's/^/formula\t/'
+    cat "$cask_cache" 2>/dev/null | sed 's/^/cask\t/'
+  )"
+
   # fzf list lines as: "<type>\t<name>"
-  # Live reload on every query change using {q}
   local out
   out="$(
-    fzf --multi --ansi --phony --query "$initial_query" \
+    echo "$all_packages" | fzf --multi --ansi --query "$initial_query" \
       --prompt='brew ❯ ' \
       --delimiter=$'\t' --with-nth=2 \
       --header=$'enter: install  •  ctrl-y: copy name  •  ctrl-o: open homepage  •  ?: toggle preview' \
-      --bind "change:reload:
-        (
-          brew search --formula \"{q}\" 2>/dev/null | sed 's/^/formula\t/' ;
-          brew search --cask    \"{q}\" 2>/dev/null | sed 's/^/cask\t/'
-        )" \
       --preview-window=right:60%:border-left:hidden \
       --bind '?:toggle-preview' \
       --preview "

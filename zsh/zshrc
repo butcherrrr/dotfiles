@@ -28,13 +28,9 @@ source "$HOME/dev/personal/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 ###############################################################################
 alias vim="nvim"
 alias tm="tmux"
-alias pf="fzf --preview='clp {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+alias pf="fzf --preview='clp {}' --preview-window=right:60%:border-left:hidden --bind '?:toggle-preview' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 alias ls="eza"
 alias wm="aerospace"
-
-###############################################################################
-# Custom Functions
-###############################################################################
 
 ###############################################################################
 # Load Helper Scripts
@@ -77,11 +73,6 @@ export FZF_DEFAULT_OPTS="
 
   # Centering
   --margin=5%,5%
-
-  # Preview
-  --preview 'bat --style=numbers --color=always --line-range=:300 {}'
-  --preview-window=bottom:55%:border-top:hidden
-  --bind '?:toggle-preview'
 
   --prompt='❯ '
   --pointer=''
