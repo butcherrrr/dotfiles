@@ -1,0 +1,158 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_ui_font_size": 22.0,
+  "inlay_hints": {
+    "show_other_hints": false,
+    "show_background": false,
+    "show_parameter_hints": false,
+    "show_type_hints": false,
+    "show_value_hints": false,
+    "enabled": false
+  },
+  "indent_guides": {
+    "background_coloring": "disabled",
+    "enabled": true,
+    "line_width": 1,
+    "coloring": "fixed"
+  },
+  "tab_size": 2,
+  "use_system_window_tabs": false,
+  "diagnostics": {
+    "button": true
+  },
+  "use_system_prompts": true,
+  "use_system_path_prompts": true,
+  "active_pane_modifiers": {
+    "border_size": 0.0
+  },
+  "status_bar": {
+    "cursor_position_button": true,
+    "active_language_button": false
+  },
+  "search": {
+    "button": false
+  },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "debugger": {
+    "button": false
+  },
+  "bottom_dock_layout": "contained",
+  "agent_buffer_font_size": 14.0,
+  "icon_theme": "Catppuccin Mocha",
+  "vim_mode": true,
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "project_panel": {
+    "file_icons": true,
+    "entry_spacing": "comfortable",
+    "dock": "right",
+    "button": false,
+    "sticky_scroll": false
+  },
+  "ui_font_size": 22.0,
+  "ui_font_family": "JetBrains Mono",
+  "buffer_font_size": 22.0,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_line_height": "comfortable",
+  "theme": {
+    "mode": "dark",
+    "light": "Nord",
+    "dark": "Catppuccin Mocha"
+  },
+  "prettier": {
+    "allowed": false
+  },
+  "git": {
+    "blame": {
+      "show_avatar": false
+    },
+    "inline_blame": {
+      "show_commit_summary": false,
+      "enabled": true
+    },
+    "git_gutter": "tracked_files",
+    "hunk_style": "staged_hollow"
+  },
+  "toolbar": {
+    "code_actions": false,
+    "selections_menu": true,
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "terminal": {
+    "button": false,
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_system_clipboard": "always",
+  },
+  "autosave": "on_focus_change",
+  "title_bar": {
+    "show_sign_in": true,
+    "show_onboarding_banner": true,
+    "show_menus": false,
+    "show_project_items": true,
+    "show_user_picture": false,
+    "show_branch_icon": false,
+    "show_branch_name": false
+  },
+  "tabs": {
+    "file_icons": false,
+    "git_status": true,
+    "show_diagnostics": "all",
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "preview_tabs": {
+    "enabled": false,
+    "enable_preview_from_file_finder": true
+  },
+  "file_finder": {
+    "file_icons": true,
+    "modal_max_width": "small"
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5"
+    },
+    "button": false
+  },
+  "git_panel": {
+    "status_style": "icon",
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "scrollbar": {
+    "show": "system",
+    "git_diff": false
+  },
+  "format_on_save": "off",
+  "show_whitespaces": "trailing"
+}
