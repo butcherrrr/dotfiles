@@ -2174,7 +2174,7 @@
                     "#eb9ab766"
                 ],
                 "vim.mode.text": "#11111b",
-                "vim.normal.background": "#f5e0dc",
+                "vim.normal.background": "#89b4fa",
                 "vim.helix_normal.background": "#f5e0dc",
                 "vim.visual.background": "#b4befe",
                 "vim.helix_select.background": "#b4befe",
