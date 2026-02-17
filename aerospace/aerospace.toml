@@ -86,7 +86,12 @@ outer.right =      22
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-shift-ctrl-alt-cmd-enter = 'exec-and-forget open -na ghostty'
+# alt-enter = '''exec-and-forget osascript -e '
+# tell application "Terminal"
+#     do script
+#     activate
+# end tell'
+# '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 shift-ctrl-alt-cmd-p = 'layout tiles horizontal vertical'
