@@ -26,6 +26,8 @@ brew install zoxide
 brew install thefuck
 brew install delta
 brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
+brew install powerlevel10k
 brew install stylua
 # brew install yabai
 # brew install skhd
@@ -73,6 +75,14 @@ ln -sf "$HOME/dotfiles/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 ln -sf "$HOME/dotfiles/ghostty/config" "$HOME/.config/ghostty/config"
 ln -sf "$HOME/dotfiles/borders/bordersrc" "$HOME/.config/borders/bordersrc"
+
+# TPM (Tmux Plugin Manager)
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  echo "Installing TPM..."
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm" --depth 1
+else
+  echo "TPM is already installed."
+fi
 
 # NVChad Installation
 if [ ! -d "$HOME/.config/nvim" ]; then
