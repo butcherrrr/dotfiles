@@ -9,6 +9,41 @@ else
   echo "Homebrew is already installed."
 fi
 
+# Homebrew Taps
+echo "Adding Homebrew taps..."
+brew tap nikitabobko/tap        # aerospace
+brew tap FelixKratz/formulae    # borders
+brew tap koekeishiya/formulae   # yabai, skhd
+
+# Homebrew Formulae
+echo "Installing formulae..."
+brew install neovim
+brew install tmux
+brew install fzf
+brew install eza
+brew install bat
+brew install zoxide
+brew install thefuck
+brew install delta
+brew install zsh-autosuggestions
+brew install stylua
+# brew install yabai
+# brew install skhd
+brew install borders
+
+# Homebrew Casks
+echo "Installing casks..."
+brew install --cask aerospace
+brew install --cask wezterm
+brew install --cask ghostty
+brew install --cask karabiner-elements
+brew install --cask font-jetbrains-mono
+brew install --cask raycast
+brew install --cask docker
+brew install --cask spotify
+brew install --cask zed
+brew install --cask firefox
+
 # oh-my-zsh Installation
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "oh-my-zsh not found. Installing oh-my-zsh..."
@@ -38,14 +73,6 @@ ln -sf "$HOME/dotfiles/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 ln -sf "$HOME/dotfiles/ghostty/config" "$HOME/.config/ghostty/config"
 ln -sf "$HOME/dotfiles/borders/bordersrc" "$HOME/.config/borders/bordersrc"
-
-# Neovim Installation
-if ! command -v nvim >/dev/null 2>&1; then
-  echo "Neovim not found. Installing Neovim via Homebrew..."
-  brew install neovim
-else
-  echo "Neovim is installed."
-fi
 
 # NVChad Installation
 if [ ! -d "$HOME/.config/nvim" ]; then
