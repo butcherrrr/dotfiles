@@ -7,7 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent_ui_font_size": 22.0,
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "agent_ui_font_size": 20.0,
   "inlay_hints": {
     "show_other_hints": false,
     "show_background": false,
@@ -40,6 +45,7 @@
     "button": false
   },
   "edit_predictions": {
+    "provider": "copilot",
     "mode": "subtle"
   },
   "debugger": {
@@ -49,9 +55,6 @@
   "agent_buffer_font_size": 14.0,
   "icon_theme": "Catppuccin Mocha",
   "vim_mode": true,
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
   "project_panel": {
     "file_icons": true,
     "entry_spacing": "comfortable",
@@ -59,15 +62,15 @@
     "button": false,
     "sticky_scroll": false
   },
-  "ui_font_size": 22.0,
+  "ui_font_size": 21.0,
   "ui_font_family": "JetBrains Mono",
-  "buffer_font_size": 22.0,
+  "buffer_font_size": 21.0,
   "buffer_font_family": "JetBrains Mono",
   "buffer_line_height": "comfortable",
   "theme": {
     "mode": "dark",
     "light": "Nord",
-    "dark": "Catppuccin Mocha"
+    "dark": "Nord Transparent"
   },
   "prettier": {
     "allowed": false
@@ -131,7 +134,9 @@
     "button": false
   },
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
