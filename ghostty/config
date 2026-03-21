@@ -11,3 +11,5 @@ theme = Nord
 background-opacity = 0.95
 background-blur = 10
 cursor-style = bar
+font-thicken = true
+split-divider-color = #4C566A
