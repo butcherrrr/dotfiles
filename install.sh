@@ -5,46 +5,14 @@ set -e
 if ! command -v brew >/dev/null 2>&1; then
   echo "Homebrew not found. Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo "Homebrew is already installed."
 fi
 
-# Homebrew Taps
-echo "Adding Homebrew taps..."
-brew tap nikitabobko/tap        # aerospace
-brew tap FelixKratz/formulae    # borders
-brew tap koekeishiya/formulae   # yabai, skhd
-
-# Homebrew Formulae
-echo "Installing formulae..."
-brew install neovim
-brew install tmux
-brew install fzf
-brew install eza
-brew install bat
-brew install zoxide
-brew install thefuck
-brew install delta
-brew install zsh-autosuggestions
-brew install zsh-syntax-highlighting
-brew install powerlevel10k
-brew install stylua
-# brew install yabai
-# brew install skhd
-brew install borders
-
-# Homebrew Casks
-echo "Installing casks..."
-brew install --cask aerospace
-brew install --cask wezterm
-brew install --cask ghostty
-brew install --cask karabiner-elements
-brew install --cask font-jetbrains-mono
-brew install --cask raycast
-brew install --cask docker
-brew install --cask spotify
-brew install --cask zed
-brew install --cask firefox
+# Homebrew Packages (taps, formulae, casks)
+echo "Installing Homebrew packages from Brewfile..."
+brew bundle --file="$HOME/dotfiles/Brewfile"
 
 # oh-my-zsh Installation
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
