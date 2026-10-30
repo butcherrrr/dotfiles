@@ -56,12 +56,24 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 12
-inner.vertical =   12
-outer.left =       12
-outer.bottom =     12
-outer.top =        12
-outer.right =      12
+inner.horizontal = [{ monitor."built-in" = 6 }, 12]
+inner.vertical =   [{ monitor."built-in" = 6 }, 12]
+outer.left =       [{ monitor."built-in" = 6 }, 12]
+outer.bottom =     [{ monitor."built-in" = 6 }, 12]
+outer.top =        [{ monitor."built-in" = 6 }, 12]
+outer.right =      [{ monitor."built-in" = 6 }, 12]
+
+# When docked, work happens on the external (main) display and chat/music
+# stay on the laptop. Undocked, everything falls back to the built-in display.
+# See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+1 = 'main'       # terminal
+2 = 'main'       # editor
+3 = 'main'       # browser
+4 = 'built-in'   # chat
+5 = 'main'       # docker
+6 = 'main'       # db / api tools
+9 = 'built-in'   # music
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -97,6 +109,9 @@ outer.right =      12
 shift-ctrl-alt-cmd-p = 'layout tiles horizontal vertical'
 shift-ctrl-alt-cmd-s = 'layout accordion horizontal'
 
+# See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
+alt-f = 'fullscreen'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
 alt-j = 'focus down'
@@ -130,17 +145,18 @@ shift-ctrl-alt-cmd-8 = 'workspace 8'
 shift-ctrl-alt-cmd-9 = 'workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-ctrl-1 = 'move-node-to-workspace 1'
-alt-ctrl-2 = 'move-node-to-workspace 2'
-alt-ctrl-3 = 'move-node-to-workspace 3'
-alt-ctrl-4 = 'move-node-to-workspace 4'
-alt-ctrl-5 = 'move-node-to-workspace 5'
-alt-ctrl-6 = 'move-node-to-workspace 6'
-alt-ctrl-7 = 'move-node-to-workspace 7'
-alt-ctrl-8 = 'move-node-to-workspace 8'
-alt-ctrl-9 = 'move-node-to-workspace 9'
+alt-ctrl-1 = 'move-node-to-workspace --focus-follows-window 1'
+alt-ctrl-2 = 'move-node-to-workspace --focus-follows-window 2'
+alt-ctrl-3 = 'move-node-to-workspace --focus-follows-window 3'
+alt-ctrl-4 = 'move-node-to-workspace --focus-follows-window 4'
+alt-ctrl-5 = 'move-node-to-workspace --focus-follows-window 5'
+alt-ctrl-6 = 'move-node-to-workspace --focus-follows-window 6'
+alt-ctrl-7 = 'move-node-to-workspace --focus-follows-window 7'
+alt-ctrl-8 = 'move-node-to-workspace --focus-follows-window 8'
+alt-ctrl-9 = 'move-node-to-workspace --focus-follows-window 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+alt-tab = 'workspace-back-and-forth'
 shift-ctrl-alt-cmd-l = 'workspace next --wrap-around'
 shift-ctrl-alt-cmd-h = 'workspace prev --wrap-around'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -152,7 +168,7 @@ alt-shift-space = 'mode service'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-esc = ['reload-config', 'mode min']
+esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
@@ -183,10 +199,6 @@ if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = "move-node-to-workspace 3"
-
-[[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace 2'
 
@@ -195,13 +207,54 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-id = 'com.electron.logseq'
+if.app-id = 'com.apple.MobileSMS'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.docker.docker'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-if.app-id = 'com.electron.dockerdesktop'
-run = 'move-node-to-workspace 5'
+if.app-id = 'com.tinyapp.TablePlus'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-id = 'org.jkiss.dbeaver.core.product'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-id = 'com.mongodb.compass'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-id = 'app.yaak.desktop'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 9'
+
+# Utility windows float instead of being squashed into the tiling tree
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.archiveutility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.raycast.macos'
+run = 'layout floating'

@@ -37,6 +37,28 @@ After installing:
 
 Theme everywhere is Catppuccin Mocha.
 
+## AeroSpace keys
+
+Caps Lock is Hyper (`shift-ctrl-alt-cmd`) via Karabiner.
+
+| Keys                    | Action                                   |
+| ----------------------- | ---------------------------------------- |
+| `alt` + `hjkl`          | focus window                             |
+| `alt-shift` + `hjkl`    | move window                              |
+| `alt-ctrl` + `hjkl`     | join with neighbour                      |
+| `alt-f`                 | fullscreen                               |
+| `Hyper` + `1-9`         | go to workspace                          |
+| `alt-ctrl` + `1-9`      | move window to workspace (and follow it) |
+| `Hyper` + `h` / `l`     | previous / next workspace                |
+| `alt-tab`               | last workspace                           |
+| `alt-shift-tab`         | move workspace to other monitor          |
+| `Hyper` + `↑` / `↓`     | grow / shrink                            |
+| `Hyper` + `p` / `s`     | tiles / accordion layout                 |
+| `alt-shift-space`       | service mode: `r` reset, `f` float, `esc` reload |
+
+Workspaces: 1 terminal · 2 Zed · 3 browser · 4 chat · 5 Docker · 6 DB/API · 9 Spotify.
+When docked, 4 and 9 stay on the laptop screen and the rest go to the main display.
+
 ## Shell helpers
 
 - `brewin` / `brewrm` — fuzzy search and install / uninstall Homebrew packages
