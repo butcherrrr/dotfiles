@@ -81,7 +81,6 @@ eval "$(zoxide init zsh)"
 source "$HOME/dotfiles/zsh/git-helpers.zsh"
 source "$HOME/dotfiles/zsh/brew-helpers.zsh"
 [ -f "$HOME/dev/.work-helpers.sh" ] && source "$HOME/dev/.work-helpers.sh"
-[ -f "$HOME/dev/work/dev-docker/shortcuts.sh" ] && source "$HOME/dev/work/dev-docker/shortcuts.sh"
 
 ###############################################################################
 # Powerlevel10k Theme (Homebrew install)
