@@ -35,6 +35,7 @@ mkdir -p "$HOME/.config/borders"
 mkdir -p "$HOME/.config/zed"
 
 ln -sf "$HOME/dotfiles/zsh/zshrc" "$HOME/.zshrc"
+ln -sf "$HOME/dotfiles/zsh/p10k.zsh" "$HOME/.p10k.zsh"
 ln -sf "$HOME/dotfiles/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
 ln -sf "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
 ln -sf "$HOME/dotfiles/git/gitconfig" "$HOME/.gitconfig"
@@ -56,15 +57,14 @@ else
   echo "TPM is already installed."
 fi
 
-# NVChad Installation
-if [ ! -d "$HOME/.config/nvim" ]; then
-  echo "NVChad is not installed. Installing NVChad..."
-  git clone https://github.com/NvChad/starter "$HOME/.config/nvim" --depth 1
-  echo "Symlinking NVChad to ~/.config/nvim..."
-  rm -rf "$HOME/.config/nvim"
-  ln -sf "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
+# Neovim (NvChad) — init.lua bootstraps lazy.nvim and NvChad on first launch
+if [ -L "$HOME/.config/nvim" ]; then
+  echo "nvim config is already linked."
+elif [ -e "$HOME/.config/nvim" ]; then
+  echo "An nvim configuration already exists at ~/.config/nvim — skipping."
 else
-  echo "An nvim configuration already exists."
+  echo "Linking nvim config..."
+  ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 fi
 
 echo "Installation complete!"
