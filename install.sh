@@ -60,6 +60,15 @@ else
   echo "No Firefox profile found — open Firefox once, then re-run to link its config."
 fi
 
+# Spotify (Spicetify + Catppuccin Mocha) — re-run `spicetify backup apply` after Spotify updates
+if command -v spicetify >/dev/null 2>&1; then
+  echo "Linking Spicetify theme..."
+  spicetify config >/dev/null 2>&1 || true  # generates ~/.config/spicetify on first run
+  mkdir -p "$HOME/.config/spicetify/Themes"
+  ln -sfn "$HOME/dotfiles/spicetify/Themes/catppuccin" "$HOME/.config/spicetify/Themes/catppuccin"
+  echo "To theme Spotify: spicetify config current_theme catppuccin color_scheme mocha inject_css 1 inject_theme_js 1 replace_colors 1 overwrite_assets 1 && spicetify backup apply"
+fi
+
 # TPM (Tmux Plugin Manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Installing TPM..."
