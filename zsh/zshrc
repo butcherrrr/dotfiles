@@ -40,13 +40,13 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 export FZF_DEFAULT_OPTS="
   --color=bg:-1,bg+:-1
-  --color=fg:#d8dee9,fg+:#eceff4
-  --color=hl:#ebcb8b,hl+:#d08770
-  --color=prompt:#a3be8c
-  --color=pointer:#5e81ac,marker:#88c0d0
-  --color=border:#4c566a,separator:#434c5e,scrollbar:#3b4252
-  --color=info:#b48ead,header:#8fbcbb
-  --color=spinner:#81a1c1
+  --color=fg:#cdd6f4,fg+:#cdd6f4
+  --color=hl:#f38ba8,hl+:#f38ba8
+  --color=prompt:#cba6f7
+  --color=pointer:#f5e0dc,marker:#b4befe
+  --color=border:#6c7086,separator:#45475a,scrollbar:#313244
+  --color=info:#cba6f7,header:#f38ba8
+  --color=spinner:#f5e0dc
   --border=rounded
   --separator='─'
   --scrollbar='│'
@@ -64,7 +64,7 @@ export FZF_TMUX_OPTS="-p 90%,70%"
 # Environment & Tools
 ###############################################################################
 export PATH="$HOME/.local/bin:$PATH"
-export BAT_THEME="Nord"
+export BAT_THEME="Catppuccin Mocha"
 export EDITOR="nvim"
 
 # Safe initializations (these should not print output)
