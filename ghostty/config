@@ -8,6 +8,8 @@ macos-window-shadow = true
 window-theme = auto
 window-title-font-family = "JetBrains Mono"
 theme = Catppuccin Mocha
-background-blur = 10
+# keep in sync with Zed's theme_overrides background alpha (e6)
+background-opacity = 0.9
+background-blur = 90
 cursor-style = bar
 font-thicken = true

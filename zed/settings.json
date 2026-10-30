@@ -78,6 +78,27 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha"
   },
+  // Translucent window matching Ghostty (background-opacity = 0.9 -> alpha e6).
+  // Only the window background is tinted; surfaces on top are cleared so the
+  // alpha doesn't stack. Popups (elevated_surface) stay opaque for legibility.
+  "theme_overrides": {
+    "Catppuccin Mocha": {
+      "background.appearance": "blurred",
+      "background": "#1e1e2ee6",
+      "editor.background": "#00000000",
+      "editor.gutter.background": "#00000000",
+      "panel.background": "#00000000",
+      // status and title bars aren't drawn over the window background, so they carry the tint themselves
+      "status_bar.background": "#1e1e2ee6",
+      "tab_bar.background": "#00000000",
+      "tab.inactive_background": "#00000000",
+      "tab.active_background": "#cdd6f412",
+      "title_bar.background": "#1e1e2ee6",
+      "title_bar.inactive_background": "#1e1e2ee6",
+      "toolbar.background": "#00000000",
+      "terminal.background": "#00000000"
+    }
+  },
   "prettier": {
     "allowed": false
   },
@@ -115,7 +136,7 @@
     "show_menus": false,
     "show_project_items": true,
     "show_user_picture": false,
-    "show_branch_icon": false,
+    "show_branch_status_icon": false,
     "show_branch_name": false
   },
   "tabs": {
