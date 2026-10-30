@@ -1,0 +1,54 @@
+/*
+ * Translucent, blurred toolbar to match Ghostty and Zed
+ * (Catppuccin Mocha base #1e1e2e at 90%, macOS system blur behind it).
+ * Web pages stay opaque.
+ */
+
+:root {
+  --ctp-base: #1e1e2e;
+  --ctp-tint: rgba(30, 30, 46, 0.9);
+  --ctp-surface0: #313244;
+  --ctp-surface1: #45475a;
+  --ctp-text: #cdd6f4;
+  --ctp-lavender: #b4befe;
+
+  --toolbar-bgcolor: transparent !important;
+  --toolbar-color: var(--ctp-text) !important;
+  --tab-selected-bgcolor: rgba(205, 214, 244, 0.07) !important;
+  --toolbar-field-background-color: rgba(49, 50, 68, 0.6) !important;
+  --toolbar-field-focus-background-color: var(--ctp-surface0) !important;
+  --toolbar-field-color: var(--ctp-text) !important;
+  --toolbar-field-focus-border-color: var(--ctp-lavender) !important;
+  --chrome-content-separator-color: transparent !important;
+}
+
+/* Native macOS blur behind the whole toolbox */
+#navigator-toolbox {
+  appearance: auto !important;
+  -moz-default-appearance: -moz-sidebar !important;
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+/* The 90% tint, painted once over the blur */
+#navigator-toolbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--ctp-tint);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#navigator-toolbox,
+#TabsToolbar,
+#nav-bar,
+#PersonalToolbar,
+#titlebar {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+#main-window {
+  background: transparent !important;
+}

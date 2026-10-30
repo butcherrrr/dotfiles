@@ -49,6 +49,17 @@ ln -sf "$HOME/dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
 ln -sf "$HOME/dotfiles/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 ln -sfn "$HOME/dotfiles/zed/themes" "$HOME/.config/zed/themes"
 
+# Firefox — link into the profile Firefox actually launches (needs Firefox to have run once)
+FF_DIR="$HOME/Library/Application Support/Firefox"
+FF_PROFILE="$(awk -F= '/^\[Install/{f=1} f && /^Default=/{print $2; exit}' "$FF_DIR/profiles.ini" 2>/dev/null)"
+if [ -n "$FF_PROFILE" ] && [ -d "$FF_DIR/$FF_PROFILE" ]; then
+  echo "Linking Firefox config into $FF_PROFILE..."
+  ln -sf "$HOME/dotfiles/firefox/user.js" "$FF_DIR/$FF_PROFILE/user.js"
+  ln -sfn "$HOME/dotfiles/firefox/chrome" "$FF_DIR/$FF_PROFILE/chrome"
+else
+  echo "No Firefox profile found — open Firefox once, then re-run to link its config."
+fi
+
 # TPM (Tmux Plugin Manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Installing TPM..."

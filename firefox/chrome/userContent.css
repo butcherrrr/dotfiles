@@ -1,0 +1,7 @@
+/* New tab / home page: same translucent Catppuccin Mocha tint as the toolbar */
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+  html,
+  body {
+    background-color: rgba(30, 30, 46, 0.9) !important;
+  }
+}
