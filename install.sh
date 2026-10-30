@@ -64,6 +64,7 @@ mkdir -p "$HOME/.config/skhd"
 mkdir -p "$HOME/.config/tmux"
 mkdir -p "$HOME/.config/ghostty"
 mkdir -p "$HOME/.config/borders"
+mkdir -p "$HOME/.config/zed"
 
 ln -sf "$HOME/dotfiles/zsh/zshrc" "$HOME/.zshrc"
 ln -sf "$HOME/dotfiles/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
@@ -75,6 +76,9 @@ ln -sf "$HOME/dotfiles/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 ln -sf "$HOME/dotfiles/ghostty/config" "$HOME/.config/ghostty/config"
 ln -sf "$HOME/dotfiles/borders/bordersrc" "$HOME/.config/borders/bordersrc"
+ln -sf "$HOME/dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
+ln -sf "$HOME/dotfiles/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+ln -sfn "$HOME/dotfiles/zed/themes" "$HOME/.config/zed/themes"
 
 # TPM (Tmux Plugin Manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then

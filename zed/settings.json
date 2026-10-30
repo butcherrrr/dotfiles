@@ -7,12 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "new_window",
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "fast": false,
+        "mode": "plan",
+        "model": "default"
+      },
       "type": "registry"
     }
   },
-  "agent_ui_font_size": 20.0,
+  "agent_ui_font_size": 16,
   "inlay_hints": {
     "show_other_hints": false,
     "show_background": false,
@@ -45,7 +51,7 @@
     "button": false
   },
   "edit_predictions": {
-    "provider": "copilot",
+    "provider": "none",
     "mode": "subtle"
   },
   "debugger": {
@@ -62,15 +68,15 @@
     "button": false,
     "sticky_scroll": false
   },
-  "ui_font_size": 21.0,
+  "ui_font_size": 18.0,
   "ui_font_family": "JetBrains Mono",
-  "buffer_font_size": 21.0,
+  "buffer_font_size": 18.0,
   "buffer_font_family": "JetBrains Mono",
   "buffer_line_height": "comfortable",
   "theme": {
     "mode": "dark",
-    "light": "Nord",
-    "dark": "Nord Transparent"
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
   },
   "prettier": {
     "allowed": false
@@ -100,7 +106,7 @@
   },
   "vim": {
     "toggle_relative_line_numbers": true,
-    "use_system_clipboard": "always",
+    "use_system_clipboard": "always"
   },
   "autosave": "on_focus_change",
   "title_bar": {
@@ -115,7 +121,7 @@
   "tabs": {
     "file_icons": false,
     "git_status": true,
-    "show_diagnostics": "all",
+    "show_diagnostics": "all"
   },
   "tab_bar": {
     "show": true,
@@ -134,6 +140,7 @@
     "button": false
   },
   "agent": {
+    "dock": "right",
     "tool_permissions": {
       "default": "allow"
     },
@@ -145,13 +152,16 @@
     "button": false
   },
   "git_panel": {
+    "dock": "left",
     "status_style": "icon",
     "button": false
   },
   "outline_panel": {
+    "dock": "left",
     "button": false
   },
   "collaboration_panel": {
+    "dock": "left",
     "button": false
   },
   "scrollbar": {
