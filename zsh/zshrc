@@ -69,7 +69,7 @@ export EDITOR="nvim"
 
 # Safe initializations (these should not print output)
 eval "$(zoxide init zsh)"
-eval "$(thefuck --alias)"
+# thefuck alias is loaded (and cached) by the oh-my-zsh plugin
 
 # Deno
 [ -f "$HOME/.deno/env" ] && source "$HOME/.deno/env"
